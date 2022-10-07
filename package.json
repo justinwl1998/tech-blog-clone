@@ -1,0 +1,28 @@
+{
+  "name": "tech-blog-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinwl1998/tech-blog-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinwl1998/tech-blog-clone/issues"
+  },
+  "homepage": "https://github.com/justinwl1998/tech-blog-clone#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.24.0"
+  }
+}
