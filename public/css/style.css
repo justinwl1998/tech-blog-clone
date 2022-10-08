@@ -1,0 +1,18 @@
+header {
+  background-color: black;
+  color: white;
+}
+
+nav {
+  width: 100%;
+}
+
+header nav ul li {
+  display: inline;
+  padding: 10px 20px;
+}
+
+header h1 {
+  display: block;
+  padding: 10px 60px;
+}
