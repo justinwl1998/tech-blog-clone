@@ -16,3 +16,7 @@ header h1 {
   display: block;
   padding: 10px 60px;
 }
+
+.date {
+  margin-left: auto;
+}

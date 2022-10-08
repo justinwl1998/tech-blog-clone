@@ -1,0 +1,17 @@
+[
+    {
+        "title": "This is a title test.",
+        "description": "This is a description test.",
+        "user_id": 1
+    },
+    {
+        "title": "This is another title test.",
+        "description": "Boy these are looking the same",
+        "user_id": 2
+    },
+    {
+        "title": "Despite all known laws of aviation",
+        "description": "I am not finishing this meme.",
+        "user_id": 3
+    }
+]
