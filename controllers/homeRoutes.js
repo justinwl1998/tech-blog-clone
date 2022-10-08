@@ -15,7 +15,8 @@ router.get('/', async(req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }));
 
         res.render('homepage', {
-            posts
+            posts,
+            logged_in: req.session.logged_in 
         });
     }
     catch (err) {
@@ -38,6 +39,7 @@ router.get('/post/:id', async(req, res) => {
 
         res.render('post', {
             ...post,
+            logged_in: req.session.logged_in 
         });
     }
     catch (err) {
@@ -47,10 +49,12 @@ router.get('/post/:id', async(req, res) => {
 
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
+        console.log("you're going to brazil")
         res.redirect('/');
         return;
     }
 
+    console.log("okay go to login")
     res.render('login');
 })
 
