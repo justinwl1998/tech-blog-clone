@@ -35,3 +35,10 @@ header h1 {
   color: #065b83;
   text-decoration: underline;
 }
+
+.commentField textarea {
+  resize: none;
+  display: block;
+  width: 50%;
+  height: 25%;
+}

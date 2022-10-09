@@ -9,8 +9,18 @@
 </div>
 
 {{!-- todo: add form to add comments --}}
-<div class="row mb-4 comments">
+<div class="row mb-4">
     <h4>Comments</h4>
+</div>
+<div class="row mb-4 commentField">
+    <textarea id="commentField" name="comment" form="usrform" placeholder="Enter comment here..."></textarea>
+    <input type="submit" value="Submit">
 </div>
 
 {{!-- todo: add comments view --}}
+
+{{#each comments as |comment|}}
+<div class="row mb-4 commentName">
+    <h5>{{comment.user.name}}</h5>
+</div>
+{{/each}}
