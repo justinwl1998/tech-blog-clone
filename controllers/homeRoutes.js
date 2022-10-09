@@ -47,15 +47,19 @@ router.get('/post/:id', async(req, res) => {
         });
 
         const post = postData.get({ plain: true });
+        const userOwnsPost = post.user_id === req.session.user_id;
 
         // reverse order of comments, because apparently order in sequelize doesn't quite work
         post.comments = post.comments.reverse();
 
         console.log(post.comments);
 
+        //todo: add variable for if the post being viewed belongs to the original poster
+
         res.render('post', {
             ...post,
-            logged_in: req.session.logged_in 
+            logged_in: req.session.logged_in,
+            userOwnsPost: userOwnsPost
         });
     }
     catch (err) {

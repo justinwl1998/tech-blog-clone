@@ -24,6 +24,9 @@ Blogpost.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        date_updated: {
+            type: DataTypes.DATE,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
