@@ -8,16 +8,18 @@
     <p>{{description}}</p>
 </div>
 
-{{!-- todo: add form to add comments --}}
 <div class="row mb-4">
     <h4>Comments</h4>
 </div>
-<div class="row mb-4 commentField">
-    <textarea id="commentField" name="comment" form="usrform" placeholder="Enter comment here..."></textarea>
-    <input type="submit" value="Submit">
-</div>
 
-{{!-- todo: add comments view --}}
+{{#if logged_in}}
+<div class="commentFormContainer row mb-4">
+    <form class="commentForm" id="usrform">
+        <textarea id="commentField" name="comment" form="usrform" placeholder="Enter comment here..."></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{{/if}}
 
 {{#each comments as |comment|}}
 <div class="comment">
@@ -36,3 +38,8 @@
     </div>
 </div>
 {{/each}}
+
+{{!-- todo: add comment adding script --}}
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}}
