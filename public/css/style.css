@@ -70,3 +70,13 @@ header h1 {
 .commentContent {
   padding-left: 25px;
 }
+
+.newPostForm input {
+  display: block;
+}
+
+.newPostForm textarea {
+  width: 50%;
+  resize: none;
+  display: block;
+}
