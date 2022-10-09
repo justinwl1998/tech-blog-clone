@@ -11,12 +11,12 @@ router.get('/', async (req, res) => {
                 }
             ],
             where: {
-                id: req.session.user_id,
+                user_id: req.session.user_id,
             }
         });
 
         const posts = postData.map((post) => post.get({ plain: true }));
-
+        
         res.render('dashboard', {
             posts,
             logged_in: req.session.logged_in

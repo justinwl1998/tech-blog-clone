@@ -25,11 +25,7 @@ const commentFormHandler = async (event) => {
         }
     }
 }
-const testfunc = async (event) => {
-    event.preventDefault();
 
-    console.log("clicked");
-}
 
 document
     .querySelector('.commentForm')

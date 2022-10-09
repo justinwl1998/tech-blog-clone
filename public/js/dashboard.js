@@ -1,10 +1,10 @@
 const dashboardFormHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#postTitle').value.trim();
-    const desc = document.querySelector('#postBody').value.trim();
+    const title = document.querySelector('#newpostTitle').value.trim();
+    const desc = document.querySelector('#newPostField').value.trim();
 
-    if (title && description) {
+    if (title && desc) {
         const res = await fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({
