@@ -34,7 +34,7 @@ router.get('/post/:id', async(req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['content'],
+                    attributes: ['content', 'date_created'],
                     include: {
                         model: User,
                         attributes: ['name'],
@@ -43,18 +43,7 @@ router.get('/post/:id', async(req, res) => {
             ],
         });
 
-        // const commentData = await Comment.findAll({
-        //     where: { post_id : req.params.id },
-        //     include: [
-        //         {
-        //             model: User,
-        //             attributes: ['name'],
-        //         },
-        //     ]
-        // });
-
         const post = postData.get({ plain: true });
-        //const comments = commentData.map((comment) => comment.get({ plain: true }));
 
         res.render('post', {
             ...post,

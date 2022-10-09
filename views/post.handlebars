@@ -20,7 +20,19 @@
 {{!-- todo: add comments view --}}
 
 {{#each comments as |comment|}}
-<div class="row mb-4 commentName">
-    <h5>{{comment.user.name}}</h5>
+<div class="comment">
+    <div class="row commentHeader">
+        <div class="col mb-9 commentName">
+            <h5>{{comment.user.name}}</h5>
+        </div>
+        <div class="col mb-3 commentDate">
+            <p>{{format_date comment.date_created}}</p>
+        </div>
+    </div>
+    <div class="row mb-4 commentContent">
+        <p>
+            {{comment.content}}
+        </p>
+    </div>
 </div>
 {{/each}}

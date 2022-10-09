@@ -42,3 +42,24 @@ header h1 {
   width: 50%;
   height: 25%;
 }
+
+.comment {
+  border: 2px solid black;
+  margin-bottom: 20px;
+  overflow: hidden;
+  margin-left: -15px;
+}
+
+.commentHeader {
+  background-color: lightgray;
+  margin: 0;
+  padding-left: 15px;
+}
+
+.commentHeader .col {
+  padding-right: 20px;
+}
+
+.commentContent {
+  padding-left: 25px;
+}
