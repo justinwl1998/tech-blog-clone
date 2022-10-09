@@ -48,6 +48,11 @@ router.get('/post/:id', async(req, res) => {
 
         const post = postData.get({ plain: true });
 
+        // reverse order of comments, because apparently order in sequelize doesn't quite work
+        post.comments = post.comments.reverse();
+
+        console.log(post.comments);
+
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in 
