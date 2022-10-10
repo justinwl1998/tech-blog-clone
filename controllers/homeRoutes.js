@@ -69,6 +69,21 @@ router.get('/post/:id', async(req, res) => {
     }
 });
 
+router.get('/editpost/:id', async (req, res) => {
+    try {
+        const postData = await Blogpost.findByPk(req.params.id)
+
+        const post = postData.get({ plain: true });
+
+        res.render('editpost', {
+            ...post
+        });
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
         console.log("you're going to brazil")

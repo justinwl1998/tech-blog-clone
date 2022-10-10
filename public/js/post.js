@@ -1,9 +1,7 @@
-const editPost = () => {
-    document.querySelector('.postContainer').style.display = 'none';
-    document.querySelector('.editPost').style.display = 'initial';
+const redirect = (event) => {
+    event.preventDefault();
 
-    document.querySelector('#postTitle').value = document.querySelector('.postContainer').childNodes[1].textContent.trim();
-    document.querySelector('#postField').value = document.querySelector('.postContainer').childNodes[5].textContent.trim()
+    window.location.href = '/editpost/' + event.target.dataset.id;
 }
 
 const editPostHandler = async (event) => {
@@ -27,7 +25,7 @@ const editPostHandler = async (event) => {
         });
 
         if (res.ok) {
-            document.location.reload();
+            window.location.href = '/dashboard';
         }
         else {
             alert(res.statusText);
@@ -58,14 +56,20 @@ const deletePost = async (event) => {
     }
 }
 
-document
-    .querySelector('.edit')
-    .addEventListener('click', editPost);
+if (document.querySelector('.edit') !== null) {
+    document
+        .querySelector('.edit')
+        .addEventListener('click', redirect);
+}
 
-document
-    .querySelector('.delete')
-    .addEventListener('click', deletePost);
+if (document.querySelector('.delete') !== null) { 
+    document
+        .querySelector('.delete')
+        .addEventListener('click', deletePost);
+}
 
-// document
-//     .querySelector('.editForm')
-//     .addEventListener('submit', editPostHandler);
+if (document.querySelector('.editForm') !== null) {
+    document
+        .querySelector('.editForm')
+        .addEventListener('submit', editPostHandler);
+}

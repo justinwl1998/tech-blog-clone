@@ -95,10 +95,6 @@ header h1 {
   display: block;
 }
 
-.editPost {
-  display: none;
-}
-
 .postOptions div {
   padding-left: 25px;
 }
