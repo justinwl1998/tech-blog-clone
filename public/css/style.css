@@ -79,10 +79,24 @@ header h1 {
   display: block;
 }
 
+.editPost input {
+  display: block;
+}
+
 .newPostForm textarea {
   width: 50%;
   resize: none;
   display: block;
+}
+
+.editPost textarea {
+  width: 50%;
+  resize: none;
+  display: block;
+}
+
+.editPost {
+  display: none;
 }
 
 .postOptions div {

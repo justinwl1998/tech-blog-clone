@@ -1,12 +1,25 @@
-<div class="row mb-4 title">
-    <h2>{{title}}</h2>
+<div class="postContainer">
+    <div class="row mb-4 title">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="row mb-4 date">
+        <p>Created by {{user.name}} on {{format_date date_created}}</p>
+    </div>
+    <div class="row mb-4 post-content">
+        <p>{{description}}</p>
+    </div>
 </div>
-<div class="row mb-4 date">
-    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+<div class="editPost">
+    <form class="editForm" id="usrform">
+        <label for="postTitle">Post Title:</label>
+        <input type="text" id="postTitle" name="postTitle">
+        <label for="postField">Post Body:</label>
+        <textarea id="postField"></textarea>
+        <input type="submit" value="Submit">
+    </form>
 </div>
-<div class="row mb-4 post-content">
-    <p>{{description}}</p>
-</div>
+
+
 
 {{#if userOwnsPost}}
 <div class="postOptions row mb-4">
@@ -52,7 +65,10 @@
 </div>
 {{/each}}
 
-{{!-- todo: add comment adding script --}}
 {{#if logged_in}}
 <script src="/js/comment.js"></script>
+{{/if}}
+
+{{#if userOwnsPost}}
+<script src="/js/post.js"></script>
 {{/if}}

@@ -16,4 +16,21 @@ router.post('/', async (req, res) => {
     }
   });
 
+router.put('/', async (req, res) => {
+  try {
+    const updatedPost = await Blogpost.update({
+      title: req.body.title,
+      description: req.body.desc,
+      date_updated: req.body.newDate
+    },
+    {where: { id: req.body.post_id },
+  });
+
+  res.status(200).json(updatedPost);
+  }
+  catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 module.exports = router;
