@@ -10,12 +10,27 @@
 </div>
 
 {{#each posts as |post|}}
-<div class="row mb-4 post-header">
-    <div class="col mb-9 title">
-        <a href="/post/{{post.id}}"><h2 align="left">{{post.title}}</h2></a>
+<div class="row mb-12 post-header">
+    <div class="col mb-6 title">
+        <a href="/post/{{post.id}}">
+            <h2 align="left">{{post.title}}</h2>
+        </a>
     </div>
     <div class="col mb-3 date">
-        <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+        <p>Posted by {{post.user.name}} on {{format_date post.date_created}}
+
+            {{#if date_updated}}
+            <em> updated on {{format_date date_updated}}</em>
+            {{/if}}
+        </p>
+    </div>
+    <div class="row mb-12 postOptions">
+        <div class="edit col mb-3">
+            <i class="fas fa-edit fa-lg"></i>
+        </div>
+        <div class="delete col mb-3">
+            <i class="fas fa-trash fa-lg" data-id={{post.id}}></i>
+        </div>
     </div>
 </div>
 <div class="row mb-4 post-content">
@@ -24,3 +39,4 @@
 {{/each}}
 
 <script src="/js/dashboard.js"></script>
+<script src="/js/post.js"></script>

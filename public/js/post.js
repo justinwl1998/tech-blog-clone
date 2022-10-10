@@ -8,7 +8,6 @@ const editPost = () => {
 
 const editPostHandler = async (event) => {
     event.preventDefault();
-    console.log("this ain't finished yet");
 
     const title = document.querySelector('#postTitle').value;
     const desc = document.querySelector('#postField').value;
@@ -36,10 +35,37 @@ const editPostHandler = async (event) => {
     }
 }
 
+const deletePost = async (event) => {
+    event.preventDefault();
+
+    const post_id = event.target.dataset.id;
+    
+    if (post_id) {
+        const res = await fetch('/api/post', {
+            method: 'DELETE',
+            body: JSON.stringify({
+                post_id,
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (res.ok) {
+            document.location.reload();
+        }
+        else {
+            alert(res.statusText);
+        }
+    }
+}
+
 document
     .querySelector('.edit')
     .addEventListener('click', editPost);
 
 document
-    .querySelector('.editForm')
-    .addEventListener('submit', editPostHandler);
+    .querySelector('.delete')
+    .addEventListener('click', deletePost);
+
+// document
+//     .querySelector('.editForm')
+//     .addEventListener('submit', editPostHandler);
