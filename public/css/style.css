@@ -17,9 +17,13 @@ header h1 {
   padding: 10px 60px;
 }
 
-.date {
+/* .date {
   margin-left: auto;
 }
+
+.post-content {
+  margin-left: auto;
+} */
 
 .no-button {
   background: none;
@@ -79,4 +83,16 @@ header h1 {
   width: 50%;
   resize: none;
   display: block;
+}
+
+.postOptions div {
+  padding-left: 25px;
+}
+
+.postOptions div i {
+  transition: all 0.3s linear;
+}
+
+.postOptions div i:hover {
+  transform: scale(1.5);
 }

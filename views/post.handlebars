@@ -8,18 +8,31 @@
     <p>{{description}}</p>
 </div>
 
+{{#if userOwnsPost}}
+<div class="postOptions row mb-4">
+    <div class="edit col mb-3">
+        <i class="fas fa-edit fa-lg"></i>
+    </div>
+    <div class="delete col mb-3">
+        <i class="fas fa-trash fa-lg"></i>
+    </div>
+</div>
+{{/if}}
+
 <div class="row mb-4">
     <h4>Comments</h4>
 </div>
 
-{{#if logged_in}}
 <div class="commentFormContainer row mb-4">
+    {{#if logged_in}}
     <form class="commentForm" id="usrform">
         <textarea id="commentField" name="comment" form="usrform" placeholder="Enter comment here..."></textarea>
         <input type="submit" value="Submit">
     </form>
+    {{else}}
+    <p>You must log in to post comments.</p>
+    {{/if}}
 </div>
-{{/if}}
 
 {{#each comments as |comment|}}
 <div class="comment">
