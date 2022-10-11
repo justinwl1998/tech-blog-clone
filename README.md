@@ -17,7 +17,11 @@ A Node.js Express server that queries an SQL database for user posts and comment
 * Sequelize
 * dotenv
 
-View the live page here.
+## Preview
+
+![Website preview](/assets/preview.PNG)
+
+View the live page [here.](https://protected-bastion-78238.herokuapp.com)
 
 ## Author
 
