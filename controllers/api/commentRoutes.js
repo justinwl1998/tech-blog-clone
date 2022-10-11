@@ -20,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
 router.delete('/', withAuth, async (req, res) => {
   try {
     const deletedComment = await Comment.destroy({
-      where: {id: req.body.comment_id }
+      where: { id: req.body.comment_id }
     });
 
     res.status(200).json(deletedComment);
@@ -28,5 +28,22 @@ router.delete('/', withAuth, async (req, res) => {
   catch (err) {
     res.status(400).json(err);
   }
-})
+});
+
+router.put('/', withAuth, async (req, res) => {
+  try {
+    const editComment = await Comment.update({
+      content: req.body.comment_text,
+      date_updated: req.body.newDate
+    },
+      {
+        where: { id: req.body.post_id },
+      })
+    res.status(200).json(editComment);
+  }
+  catch (err) {
+
+  }
+});
+
 module.exports = router;

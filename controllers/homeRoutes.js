@@ -95,6 +95,25 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
     catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/editcomment/:id', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id);
+
+        const comment = commentData.get({ plain: true });
+
+        if (req.session.user_id !== comment.user_id) {
+            res.redirect('back');
+        }
+
+        res.render('editcomment', {
+            ...comment
+        });
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
 })
 
 router.get('/login', async (req, res) => {
