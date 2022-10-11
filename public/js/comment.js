@@ -23,7 +23,37 @@ const commentFormHandler = async (event) => {
     }
 }
 
+const deleteComment = async (event) => {
+    console.log('clicked')
+    event.preventDefault();
+
+    const comment_id = event.target.dataset.id;
+    console.log(comment_id);
+
+    if (comment_id) {
+        const res = await fetch('/api/comment', {
+            method: 'DELETE',
+            body: JSON.stringify({
+                comment_id,
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (res.ok) {
+            document.location.reload();
+        }
+        else {
+            alert(res.statusText);
+        }
+    }
+}
 
 document
     .querySelector('.commentForm')
     .addEventListener('submit', commentFormHandler);
+
+if (document.querySelector('.delete')) {
+    document
+        .querySelector('.delete')
+        .addEventListener('click', deleteComment);
+}

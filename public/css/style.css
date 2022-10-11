@@ -17,14 +17,6 @@ header h1 {
   padding: 10px 60px;
 }
 
-/* .date {
-  margin-left: auto;
-}
-
-.post-content {
-  margin-left: auto;
-} */
-
 .no-button {
   background: none;
   border: none;
@@ -104,5 +96,17 @@ header h1 {
 }
 
 .postOptions div i:hover {
+  transform: scale(1.5);
+}
+
+.commentOptions div {
+  padding-left: 25px;
+}
+
+.commentOptions div i {
+  transition: all 0.3s linear;
+}
+
+.commentOptions div i:hover {
   transform: scale(1.5);
 }
