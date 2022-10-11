@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const { Blogpost, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+// todo: redirect to login if not logged in
+
+router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Blogpost.findAll({
             include: [

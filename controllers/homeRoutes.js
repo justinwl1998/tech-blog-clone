@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blogpost, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async(req, res) => {
     try {
@@ -69,11 +70,16 @@ router.get('/post/:id', async(req, res) => {
     }
 });
 
-router.get('/editpost/:id', async (req, res) => {
+router.get('/editpost/:id', withAuth, async (req, res) => {
     try {
         const postData = await Blogpost.findByPk(req.params.id)
 
         const post = postData.get({ plain: true });
+
+        // prevent other users from editing posts that are not owned by them
+        if (req.session.user_id !== post.user_id) {
+            res.redirect('back');
+        }
 
         res.render('editpost', {
             ...post
@@ -86,12 +92,10 @@ router.get('/editpost/:id', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
-        console.log("you're going to brazil")
         res.redirect('/');
         return;
     }
 
-    console.log("okay go to login")
     res.render('login');
 })
 
