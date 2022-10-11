@@ -14,17 +14,6 @@
     </div>
 </div>
 
-{{!-- {{#if userOwnsPost}}
-<div class="postOptions row mb-4">
-    <div class="edit col mb-3">
-        <i class="fas fa-edit fa-lg"></i>
-    </div>
-    <div class="delete col mb-3">
-        <i class="fas fa-trash fa-lg"></i>
-    </div>
-</div>
-{{/if}} --}}
-
 <div class="row mb-4">
     <h4>Comments</h4>
 </div>
@@ -48,6 +37,10 @@
         </div>
         <div class="col mb-3 commentDate">
             <p>{{format_date comment.date_created}}</p>
+
+            {{#if comment.date_updated}}
+            <em> updated on {{format_date comment.date_updated}}</em>
+            {{/if}}
         </div>
         {{#if comment.isOwn}}
         <div class="col commentOptions">
